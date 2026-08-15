@@ -73,6 +73,8 @@ export default function Home() {
         onTabChange={setActiveTab}
         globalSearch={globalSearch}
         onSearchChange={setGlobalSearch}
+        students={students}
+        onSelectStudent={(id) => setViewProfileStudentId(id)}
       />
 
       {/* Main Content Area */}
@@ -152,14 +154,12 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-foreground">
-              Newton SIS • Student Information System
+              Newton
             </span>
-            <span>—</span>
-            <span>SQLite Database Active</span>
           </div>
 
           <div className="flex items-center gap-4 text-[11px]">
-            <span>Fall 2025 Session</span>
+            <span>2026 Session</span>
             <span>•</span>
             <span>Role-Based Access: Admin, Teacher, Student, Parent</span>
           </div>

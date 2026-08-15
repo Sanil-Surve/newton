@@ -150,13 +150,13 @@ function seedSampleData() {
   `)
 
   const users = [
-    ["usr-admin-1", "Eleanor Campbell", "admin@newtonsis.edu", "admin", "+1 (555) 234-5678", "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150", "Administration"],
-    ["usr-tea-1", "Dr. Marcus Vance", "m.vance@newtonsis.edu", "teacher", "+1 (555) 345-6789", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150", "Mathematics"],
-    ["usr-tea-2", "Sarah Jenkins", "s.jenkins@newtonsis.edu", "teacher", "+1 (555) 456-7890", "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150", "Sciences"],
-    ["usr-tea-3", "David Rossi", "d.rossi@newtonsis.edu", "teacher", "+1 (555) 567-8901", "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150", "Computer Science"],
-    ["usr-tea-4", "Claire Dubois", "c.dubois@newtonsis.edu", "teacher", "+1 (555) 678-9012", "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150", "Literature & Arts"],
-    ["usr-stu-1", "Liam Alexander Chen", "liam.chen@student.newtonsis.edu", "student", "+1 (555) 890-1234", "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150", "Grade 10-A"],
-    ["usr-par-1", "Robert & Mei Chen", "robert.chen@family.com", "parent", "+1 (555) 890-5678", "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150", "Guardian of Liam Chen"],
+    ["usr-admin-1", "Eleanor Campbell", "admin@newtonsis.edu", "admin", "+91 98765 00001", "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150", "Administration"],
+    ["usr-tea-1", "Dr. Marcus Vance", "m.vance@newtonsis.edu", "teacher", "+91 98765 00002", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150", "Mathematics"],
+    ["usr-tea-2", "Sarah Jenkins", "s.jenkins@newtonsis.edu", "teacher", "+91 98765 00003", "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150", "Sciences"],
+    ["usr-tea-3", "David Rossi", "d.rossi@newtonsis.edu", "teacher", "+91 98765 00004", "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150", "Computer Science"],
+    ["usr-tea-4", "Claire Dubois", "c.dubois@newtonsis.edu", "teacher", "+91 98765 00005", "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150", "Literature & Arts"],
+    ["usr-stu-1", "Ramesh Sharma", "ramesh.sharma@student.newtonsis.edu", "student", "+91 98765 43210", "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150", "Grade 10-A"],
+    ["usr-par-1", "Sanjay & Sunita Sharma", "sanjay.sharma@family.com", "parent", "+91 98765 43211", "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150", "Guardian of Ramesh Sharma"],
   ]
 
   users.forEach((u) => insertUser.run(...u))
@@ -224,18 +224,18 @@ function seedSampleData() {
   `)
 
   const studentList = [
-    ["stu-1", "STU-2025-001", "Liam", "Chen", "liam.chen@student.newtonsis.edu", "2009-04-15", "Male", "+1 (555) 890-1234", "742 Evergreen Terrace, Springfield, OR", "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150", "cls-10a", "Robert & Mei Chen", "+1 (555) 890-5678", "robert.chen@family.com", "Active"],
-    ["stu-2", "STU-2025-002", "Sophia", "Rodriguez", "sophia.r@student.newtonsis.edu", "2009-08-22", "Female", "+1 (555) 234-9876", "124 Conch Street, Pacific Grove, CA", "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150", "cls-10a", "Elena Rodriguez", "+1 (555) 234-9877", "elena.r@gmail.com", "Active"],
-    ["stu-3", "STU-2025-003", "Ethan", "Miller", "ethan.m@student.newtonsis.edu", "2009-01-10", "Male", "+1 (555) 345-1234", "456 Elm Court, Boulder, CO", "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150", "cls-10a", "James Miller", "+1 (555) 345-5678", "jmiller@techcorp.com", "Active"],
-    ["stu-4", "STU-2025-004", "Amara", "Okonkwo", "amara.o@student.newtonsis.edu", "2009-11-05", "Female", "+1 (555) 456-2345", "89 Oak Ridge Dr, Austin, TX", "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150", "cls-10a", "Dr. Chidi Okonkwo", "+1 (555) 456-6789", "chidi.o@austinmed.org", "Active"],
-    ["stu-5", "STU-2025-005", "Noah", "Patel", "noah.p@student.newtonsis.edu", "2009-03-30", "Male", "+1 (555) 567-3456", "312 Maple Ave, Seattle, WA", "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=150", "cls-10a", "Anita Patel", "+1 (555) 567-7890", "anita.patel@uw.edu", "Active"],
-    ["stu-6", "STU-2025-006", "Emma", "Watson", "emma.w@student.newtonsis.edu", "2009-07-14", "Female", "+1 (555) 678-4567", "55 Park Lane, Boston, MA", "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150", "cls-10a", "William Watson", "+1 (555) 678-8901", "wwatson@lawboston.com", "Active"],
-    ["stu-7", "STU-2025-007", "Lucas", "Dubois", "lucas.d@student.newtonsis.edu", "2009-09-19", "Male", "+1 (555) 789-5678", "21 Rue Lafayette, Chicago, IL", "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150", "cls-10b", "Jean Dubois", "+1 (555) 789-9012", "jean.dubois@architects.com", "Active"],
-    ["stu-8", "STU-2025-008", "Maya", "Lin", "maya.l@student.newtonsis.edu", "2009-12-03", "Female", "+1 (555) 890-6789", "67 Willow Way, Denver, CO", "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150", "cls-10b", "Grace Lin", "+1 (555) 890-0123", "grace.lin@arts.org", "Active"],
-    ["stu-9", "STU-2025-009", "Benjamin", "Kowalski", "ben.k@student.newtonsis.edu", "2008-05-18", "Male", "+1 (555) 901-7890", "102 Pine St, Minneapolis, MN", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150", "cls-11a", "Jan Kowalski", "+1 (555) 901-1234", "jkowalski@design.com", "Active"],
-    ["stu-10", "STU-2025-010", "Zoe", "Kravitz", "zoe.k@student.newtonsis.edu", "2008-10-25", "Female", "+1 (555) 012-8901", "88 Sunset Blvd, Los Angeles, CA", "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150", "cls-11a", "Lenny Kravitz", "+1 (555) 012-2345", "lkravitz@music.com", "Active"],
-    ["stu-11", "STU-2025-011", "Oliver", "Bennett", "oliver.b@student.newtonsis.edu", "2007-02-14", "Male", "+1 (555) 123-9012", "14 Beacon St, Boston, MA", "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150", "cls-12a", "Arthur Bennett", "+1 (555) 123-3456", "arthur.b@harvard.edu", "Active"],
-    ["stu-12", "STU-2025-012", "Aria", "Montgomery", "aria.m@student.newtonsis.edu", "2009-06-29", "Female", "+1 (555) 234-0123", "9 Rosewood Rd, Philadelphia, PA", "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150", "cls-10a", "Byron Montgomery", "+1 (555) 234-4567", "bmontgomery@hollis.edu", "Active"],
+    ["stu-1", "STU-2025-001", "Ramesh", "Sharma", "ramesh.sharma@student.newtonsis.edu", "2009-04-15", "Male", "+91 98765 43210", "B-104 Sunrise Heights, Mumbai", "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150", "cls-10a", "Sanjay Sharma", "+91 98765 43211", "sanjay.sharma@family.com", "Active"],
+    ["stu-2", "STU-2025-002", "Suresh", "Verma", "suresh.verma@student.newtonsis.edu", "2009-08-22", "Male", "+91 98765 43212", "Flat 402 Green Valley, Pune", "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150", "cls-10a", "Ramesh Verma", "+91 98765 43213", "r.verma@gmail.com", "Active"],
+    ["stu-3", "STU-2025-003", "Nikita", "Patel", "nikita.patel@student.newtonsis.edu", "2009-01-10", "Female", "+91 98765 43214", "Plot 12 Sector 15, Ahmedabad", "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150", "cls-10a", "Mukesh Patel", "+91 98765 43215", "mpatel@techcorp.com", "Active"],
+    ["stu-4", "STU-2025-004", "Reeta", "Gupta", "reeta.gupta@student.newtonsis.edu", "2009-11-05", "Female", "+91 98765 43216", "C-88 Indirapuram, Delhi", "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150", "cls-10a", "Alok Gupta", "+91 98765 43217", "alok.gupta@medorg.in", "Active"],
+    ["stu-5", "STU-2025-005", "Vaibhav", "Joshi", "vaibhav.joshi@student.newtonsis.edu", "2009-03-30", "Male", "+91 98765 43218", "72 Tilak Nagar, Jaipur", "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150", "cls-10a", "Prakash Joshi", "+91 98765 43219", "prakash.joshi@gov.in", "Active"],
+    ["stu-6", "STU-2025-006", "Ananya", "Rao", "ananya.rao@student.newtonsis.edu", "2009-07-14", "Female", "+91 98765 43220", "55 Park View, Bengaluru", "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150", "cls-10a", "Venkatesh Rao", "+91 98765 43221", "vrao@lawblr.com", "Active"],
+    ["stu-7", "STU-2025-007", "Rohan", "Deshmukh", "rohan.d@student.newtonsis.edu", "2009-09-19", "Male", "+91 98765 43222", "21 Shivaji Park, Mumbai", "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150", "cls-10b", "Anand Deshmukh", "+91 98765 43223", "anand.d@architects.in", "Active"],
+    ["stu-8", "STU-2025-008", "Priya", "Nair", "priya.nair@student.newtonsis.edu", "2009-12-03", "Female", "+91 98765 43224", "67 Palm Grove, Kochi", "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150", "cls-10b", "Suresh Nair", "+91 98765 43225", "suresh.nair@arts.org", "Active"],
+    ["stu-9", "STU-2025-009", "Aditya", "Mehta", "aditya.m@student.newtonsis.edu", "2008-05-18", "Male", "+91 98765 43226", "102 Pine St, Kolkata", "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=150", "cls-11a", "Rajesh Mehta", "+91 98765 43227", "rmehta@design.in", "Active"],
+    ["stu-10", "STU-2025-010", "Sneha", "Kulkarni", "sneha.k@student.newtonsis.edu", "2008-10-25", "Female", "+91 98765 43228", "88 Marine Lines, Mumbai", "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150", "cls-11a", "Mahesh Kulkarni", "+91 98765 43229", "mkulkarni@music.in", "Active"],
+    ["stu-11", "STU-2025-011", "Aryan", "Kapoor", "aryan.k@student.newtonsis.edu", "2007-02-14", "Male", "+91 98765 43230", "14 Golf Links, New Delhi", "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150", "cls-12a", "Vikram Kapoor", "+91 98765 43231", "vikram.k@delhiuniv.ac.in", "Active"],
+    ["stu-12", "STU-2025-012", "Neha", "Reddy", "neha.reddy@student.newtonsis.edu", "2009-06-29", "Female", "+91 98765 43232", "9 Jubilee Hills, Hyderabad", "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150", "cls-10a", "Dr. Raghu Reddy", "+91 98765 43233", "rreddy@hospital.in", "Active"],
   ]
 
   studentList.forEach((st) => insertStudent.run(...st))

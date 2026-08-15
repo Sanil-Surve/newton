@@ -170,9 +170,11 @@ export function StudentManagement({
   // Sample CSV template generator
   const loadSampleCSV = () => {
     const sample = `roll_no,first_name,last_name,dob,gender,class_id,contact,address,guardian_name,guardian_contact,status
-STU-2025-101,Alexander,Wright,2009-03-12,Male,cls-10a,+1 (555) 777-1001,12 Elm Street,David Wright,+1 (555) 777-1002,Active
-STU-2025-102,Isabella,Martinez,2009-08-19,Female,cls-10a,+1 (555) 777-2001,45 Pine Ave,Maria Martinez,+1 (555) 777-2002,Active
-STU-2025-103,Lucas,Kim,2009-11-23,Male,cls-10b,+1 (555) 777-3001,89 Oak Road,Jin Kim,+1 (555) 777-3002,Active`
+STU-2025-101,Ramesh,Sharma,2009-04-15,Male,cls-10a,+91 98765 11001,B-104 Sunrise Heights Mumbai,Sanjay Sharma,+91 98765 11002,Active
+STU-2025-102,Suresh,Verma,2009-08-22,Male,cls-10a,+91 98765 22001,Flat 402 Green Valley Pune,Ramesh Verma,+91 98765 22002,Active
+STU-2025-103,Nikita,Patel,2009-01-10,Female,cls-10a,+91 98765 33001,Plot 12 Sector 15 Ahmedabad,Mukesh Patel,+91 98765 33002,Active
+STU-2025-104,Reeta,Gupta,2009-11-05,Female,cls-10a,+91 98765 44001,C-88 Indirapuram Delhi,Alok Gupta,+91 98765 44002,Active
+STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Nagar Jaipur,Prakash Joshi,+91 98765 55002,Active`
     setImportText(sample)
   }
 
@@ -464,7 +466,7 @@ STU-2025-103,Lucas,Kim,2009-11-23,Male,cls-10b,+1 (555) 777-3001,89 Oak Road,Jin
                     name="first_name"
                     defaultValue={editingStudent?.first_name || ""}
                     required
-                    placeholder="Liam"
+                    placeholder="Ramesh"
                   />
                 </div>
                 <div className="space-y-1">
@@ -473,7 +475,7 @@ STU-2025-103,Lucas,Kim,2009-11-23,Male,cls-10b,+1 (555) 777-3001,89 Oak Road,Jin
                     name="last_name"
                     defaultValue={editingStudent?.last_name || ""}
                     required
-                    placeholder="Chen"
+                    placeholder="Sharma"
                   />
                 </div>
               </div>
