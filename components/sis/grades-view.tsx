@@ -210,9 +210,33 @@ export function GradesView({
             <CardTitle className="text-sm font-semibold">
               Mark Entry &amp; Automatic GPA Computation
             </CardTitle>
-            <Badge variant="secondary" className="text-[10px]">
-              Auto GPA Engine Active
-            </Badge>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="xs"
+                onClick={() => {
+                  setGradesList((prev) =>
+                    prev.map((g, idx) => {
+                      const sampleScore = 80 + ((idx * 7) % 18)
+                      const { point, letter } = calculateGrade(sampleScore, 100)
+                      return {
+                        ...g,
+                        marks_obtained: sampleScore,
+                        grade_point: point,
+                        letter_grade: letter,
+                        remarks: sampleScore >= 90 ? "Excellent mastery" : "Consistent performance",
+                      }
+                    })
+                  )
+                }}
+                className="gap-1 text-[10px] text-primary"
+              >
+                <span>⚡ Fill Sample Marks</span>
+              </Button>
+              <Badge variant="secondary" className="text-[10px]">
+                Auto GPA Engine Active
+              </Badge>
+            </div>
           </div>
         </CardHeader>
         <CardContent className="p-0 overflow-x-auto">

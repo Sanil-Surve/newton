@@ -11,6 +11,7 @@ import {
   MoreVertical,
   Plus,
   Search,
+  Sparkles,
   Trash2,
   Upload,
   UserCheck,
@@ -23,6 +24,84 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+const DUMMY_STUDENT_PRESETS = [
+  {
+    first_name: "Ramesh",
+    last_name: "Sharma",
+    roll_no: "STU-2025-015",
+    dob: "2009-04-15",
+    gender: "Male",
+    class_id: "cls-10a",
+    email: "ramesh.sharma@student.newtonsis.edu",
+    contact: "+91 98765 43210",
+    address: "B-104 Sunrise Heights, Mumbai",
+    guardian_name: "Sanjay Sharma",
+    guardian_contact: "+91 98765 43211",
+    guardian_email: "sanjay.sharma@family.com",
+    status: "Active",
+  },
+  {
+    first_name: "Suresh",
+    last_name: "Verma",
+    roll_no: "STU-2025-016",
+    dob: "2009-08-22",
+    gender: "Male",
+    class_id: "cls-10a",
+    email: "suresh.verma@student.newtonsis.edu",
+    contact: "+91 98765 43212",
+    address: "Flat 402 Green Valley, Pune",
+    guardian_name: "Ramesh Verma",
+    guardian_contact: "+91 98765 43213",
+    guardian_email: "r.verma@gmail.com",
+    status: "Active",
+  },
+  {
+    first_name: "Nikita",
+    last_name: "Patel",
+    roll_no: "STU-2025-017",
+    dob: "2009-01-10",
+    gender: "Female",
+    class_id: "cls-10a",
+    email: "nikita.patel@student.newtonsis.edu",
+    contact: "+91 98765 43214",
+    address: "Plot 12 Sector 15, Ahmedabad",
+    guardian_name: "Mukesh Patel",
+    guardian_contact: "+91 98765 43215",
+    guardian_email: "mpatel@techcorp.com",
+    status: "Active",
+  },
+  {
+    first_name: "Reeta",
+    last_name: "Gupta",
+    roll_no: "STU-2025-018",
+    dob: "2009-11-05",
+    gender: "Female",
+    class_id: "cls-10a",
+    email: "reeta.gupta@student.newtonsis.edu",
+    contact: "+91 98765 43216",
+    address: "C-88 Indirapuram, Delhi",
+    guardian_name: "Alok Gupta",
+    guardian_contact: "+91 98765 43217",
+    guardian_email: "alok.gupta@medorg.in",
+    status: "Active",
+  },
+  {
+    first_name: "Vaibhav",
+    last_name: "Joshi",
+    roll_no: "STU-2025-019",
+    dob: "2009-03-30",
+    gender: "Male",
+    class_id: "cls-10a",
+    email: "vaibhav.joshi@student.newtonsis.edu",
+    contact: "+91 98765 43218",
+    address: "72 Tilak Nagar, Jaipur",
+    guardian_name: "Prakash Joshi",
+    guardian_contact: "+91 98765 43219",
+    guardian_email: "prakash.joshi@gov.in",
+    status: "Active",
+  },
+]
 
 interface StudentManagementProps {
   students: any[]
@@ -52,6 +131,12 @@ export function StudentManagement({
   const [importText, setImportText] = useState<string>("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [feedback, setFeedback] = useState<string | null>(null)
+  const [presetIndex, setPresetIndex] = useState(0)
+  const currentPreset = DUMMY_STUDENT_PRESETS[presetIndex]
+
+  const handleNextPreset = () => {
+    setPresetIndex((prev) => (prev + 1) % DUMMY_STUDENT_PRESETS.length)
+  }
 
   // Filter students
   const filteredStudents = students.filter((s) => {
@@ -451,20 +536,37 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
               <X className="size-4" />
             </button>
 
-            <h2 className="text-base font-bold text-foreground font-heading">
-              {editingStudent ? "Edit Student Record" : "Register New Student"}
-            </h2>
-            <p className="text-xs text-muted-foreground mb-4">
-              Enter academic registration details and guardian contact information.
-            </p>
+            <div className="flex items-center justify-between border-b border-border/50 pb-3 mb-4">
+              <div>
+                <h2 className="text-base font-bold text-foreground font-heading">
+                  {editingStudent ? "Edit Student Record" : "Register New Student"}
+                </h2>
+                <p className="text-xs text-muted-foreground">
+                  Enter academic registration details and guardian contact information.
+                </p>
+              </div>
 
-            <form onSubmit={handleSaveStudent} className="space-y-4 text-xs">
+              {!editingStudent && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="xs"
+                  onClick={handleNextPreset}
+                  className="gap-1 text-[11px] font-medium text-primary border-primary/30 bg-primary/5 hover:bg-primary/10 mr-6"
+                >
+                  <Sparkles className="size-3" />
+                  <span>Autofill Sample ({currentPreset.first_name})</span>
+                </Button>
+              )}
+            </div>
+
+            <form key={editingStudent ? editingStudent.id : `preset-${presetIndex}`} onSubmit={handleSaveStudent} className="space-y-4 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
                   <label className="font-medium text-foreground">First Name *</label>
                   <Input
                     name="first_name"
-                    defaultValue={editingStudent?.first_name || ""}
+                    defaultValue={editingStudent?.first_name || currentPreset.first_name}
                     required
                     placeholder="Ramesh"
                   />
@@ -473,7 +575,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <label className="font-medium text-foreground">Last Name *</label>
                   <Input
                     name="last_name"
-                    defaultValue={editingStudent?.last_name || ""}
+                    defaultValue={editingStudent?.last_name || currentPreset.last_name}
                     required
                     placeholder="Sharma"
                   />
@@ -486,8 +588,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <Input
                     name="roll_no"
                     defaultValue={
-                      editingStudent?.roll_no ||
-                      `STU-2025-${Math.floor(100 + Math.random() * 900)}`
+                      editingStudent?.roll_no || currentPreset.roll_no
                     }
                     required
                     className="font-mono text-xs"
@@ -498,7 +599,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <Input
                     type="date"
                     name="dob"
-                    defaultValue={editingStudent?.dob || "2009-05-15"}
+                    defaultValue={editingStudent?.dob || currentPreset.dob}
                     required
                   />
                 </div>
@@ -506,7 +607,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <label className="font-medium text-foreground">Gender *</label>
                   <select
                     name="gender"
-                    defaultValue={editingStudent?.gender || "Male"}
+                    defaultValue={editingStudent?.gender || currentPreset.gender}
                     className="h-8 w-full rounded-lg border border-input bg-transparent px-2 text-xs text-foreground outline-none"
                   >
                     <option value="Male">Male</option>
@@ -521,7 +622,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <label className="font-medium text-foreground">Assigned Class *</label>
                   <select
                     name="class_id"
-                    defaultValue={editingStudent?.class_id || classes[0]?.id || "cls-10a"}
+                    defaultValue={editingStudent?.class_id || currentPreset.class_id || classes[0]?.id || "cls-10a"}
                     className="h-8 w-full rounded-lg border border-input bg-transparent px-2 text-xs text-foreground outline-none"
                   >
                     {classes.map((c) => (
@@ -535,7 +636,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <label className="font-medium text-foreground">Enrollment Status</label>
                   <select
                     name="status"
-                    defaultValue={editingStudent?.status || "Active"}
+                    defaultValue={editingStudent?.status || currentPreset.status}
                     className="h-8 w-full rounded-lg border border-input bg-transparent px-2 text-xs text-foreground outline-none"
                   >
                     <option value="Active">Active</option>
@@ -552,7 +653,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <Input
                     type="email"
                     name="email"
-                    defaultValue={editingStudent?.email || ""}
+                    defaultValue={editingStudent?.email || currentPreset.email}
                     placeholder="student@school.edu"
                   />
                 </div>
@@ -560,8 +661,8 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <label className="font-medium text-foreground">Student Phone</label>
                   <Input
                     name="contact"
-                    defaultValue={editingStudent?.contact || "+1 (555) 000-0000"}
-                    placeholder="+1 (555) 000-0000"
+                    defaultValue={editingStudent?.contact || currentPreset.contact}
+                    placeholder="+91 98765 00000"
                   />
                 </div>
               </div>
@@ -570,7 +671,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                 <label className="font-medium text-foreground">Residential Address</label>
                 <Input
                   name="address"
-                  defaultValue={editingStudent?.address || "123 Academic Way"}
+                  defaultValue={editingStudent?.address || currentPreset.address}
                   placeholder="Street, City, State"
                 />
               </div>
@@ -580,7 +681,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <label className="font-medium text-foreground">Guardian Name *</label>
                   <Input
                     name="guardian_name"
-                    defaultValue={editingStudent?.guardian_name || ""}
+                    defaultValue={editingStudent?.guardian_name || currentPreset.guardian_name}
                     required
                     placeholder="Parent / Guardian"
                   />
@@ -589,9 +690,9 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                   <label className="font-medium text-foreground">Guardian Phone *</label>
                   <Input
                     name="guardian_contact"
-                    defaultValue={editingStudent?.guardian_contact || ""}
+                    defaultValue={editingStudent?.guardian_contact || currentPreset.guardian_contact}
                     required
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+91 98765 00000"
                   />
                 </div>
               </div>
@@ -601,7 +702,7 @@ STU-2025-105,Vaibhav,Joshi,2009-03-30,Male,cls-10a,+91 98765 55001,72 Tilak Naga
                 <Input
                   type="email"
                   name="guardian_email"
-                  defaultValue={editingStudent?.guardian_email || ""}
+                  defaultValue={editingStudent?.guardian_email || currentPreset.guardian_email}
                   placeholder="parent@email.com"
                 />
               </div>

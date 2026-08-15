@@ -326,15 +326,15 @@ export function CoursesView({ classes, onRefresh }: CoursesViewProps) {
             <form onSubmit={handleAddClass} className="mt-4 space-y-3 text-xs">
               <div>
                 <label className="font-medium text-foreground">Grade Level</label>
-                <Input name="grade" placeholder="e.g. Grade 11" required />
+                <Input name="grade" defaultValue="Grade 11" placeholder="e.g. Grade 11" required />
               </div>
               <div>
                 <label className="font-medium text-foreground">Section</label>
-                <Input name="section" placeholder="e.g. A" required />
+                <Input name="section" defaultValue="C" placeholder="e.g. C" required />
               </div>
               <div>
                 <label className="font-medium text-foreground">Assigned Room</label>
-                <Input name="room" placeholder="e.g. Room 405" required />
+                <Input name="room" defaultValue="Room 408" placeholder="e.g. Room 408" required />
               </div>
               <div className="flex justify-end gap-2 pt-3 border-t border-border/40">
                 <Button
@@ -370,25 +370,25 @@ export function CoursesView({ classes, onRefresh }: CoursesViewProps) {
             <form onSubmit={handleAddSubject} className="mt-4 space-y-3 text-xs">
               <div>
                 <label className="font-medium text-foreground">Subject Code</label>
-                <Input name="code" placeholder="e.g. BIO-101" required />
+                <Input name="code" defaultValue="BIO-101" placeholder="e.g. BIO-101" required />
               </div>
               <div>
                 <label className="font-medium text-foreground">Subject Title</label>
-                <Input name="name" placeholder="e.g. Molecular Biology" required />
+                <Input name="name" defaultValue="Advanced Molecular Biology" placeholder="e.g. Molecular Biology" required />
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="font-medium text-foreground">Department</label>
-                  <Input name="department" placeholder="Sciences" required />
+                  <Input name="department" defaultValue="Sciences" placeholder="Sciences" required />
                 </div>
                 <div>
                   <label className="font-medium text-foreground">Credits</label>
-                  <Input name="credits" type="number" defaultValue={3} required />
+                  <Input name="credits" type="number" defaultValue={4} required />
                 </div>
               </div>
               <div>
                 <label className="font-medium text-foreground">Description</label>
-                <Input name="description" placeholder="Course syllabus overview..." />
+                <Input name="description" defaultValue="Cellular structure, genetics, and biotechnology laboratory techniques" placeholder="Course syllabus overview..." />
               </div>
               <div className="flex justify-end gap-2 pt-3 border-t border-border/40">
                 <Button
